@@ -54,7 +54,7 @@ return [
 
     'url' => env('APP_URL', 'http://mont.real'),
 
-    'asset_url' => env('ASSET_URL', 'http://mont.real'),
+    'asset_url' => env('ASSET_URL', 'http://mont.real/public'),
 
     /*
     |--------------------------------------------------------------------------

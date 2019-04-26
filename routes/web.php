@@ -33,8 +33,10 @@ Route::post('/my-gallery', 'Frontend\UserController@galleryfeatured')->name('gal
 Route::resource('gallery', 'Frontend\GalleryController');
 
 //Admin Routes
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
+Route::group(['prefix' => 'admin'], function(){
 
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'Backend\HomeController@index')->name('admin.home');
     Route::resource('homeinfo', 'Backend\HomeinfoController')->only([
         'edit', 'update'

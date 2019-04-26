@@ -23,8 +23,8 @@
                     <div class="row">
                         <div class="col-md-6 col-xs-12 col-md-offset-3">
                             <div class="tb-login-form ">
-                                <h5 class="tb-title">Login</h5>
-                                <form method="POST" action="{{ route('login') }}">
+                                <h5 class="tb-title">Admin Login</h5>
+                                <form method="POST" action="{{ route('admin.login.submit') }}">
                                     @csrf
                                     <p class="checkout-coupon top log a-an">
                                         <label for="email">{{ __('E-Mail Address') }} <em>*</em></label>
