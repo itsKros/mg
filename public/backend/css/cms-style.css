@@ -55,3 +55,13 @@ hr.cmsseprator {
 }
 .action a{margin-right: 5px;}
 td.action form { display: inline-block;}
+.price .form-horizontal label{color: #232323;}
+.price .card-outline-inverse .card-header {
+    background: #232323;
+    border-color: #232323;
+}
+.btn-inverse, .btn-inverse.disabled {
+    background: #232323;
+    border: 1px solid #232323;
+    color: #ffffff;
+}

@@ -46,9 +46,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               {{-- <img src="/uploads/avatars/default.png" alt="{{Auth::user()->name}}" class="profile-pic m-r-10" /> --}}
-                              <img src="{{ url('/uploads/avatars/default.png')}}" alt="{{Auth::user()->name}}" class="profile-pic m-r-10" />
                               {{Auth::user()->name}}
-                              
                             </a> 
                             <a href="{{ route('logout') }}" class="nav-link dropdown-toggle text-muted waves-effect waves-dark link logout" data-toggle="tooltip" title="Logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="mdi mdi-power"></i></a> 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

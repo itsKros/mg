@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 26, 2019 at 01:12 PM
+-- Generation Time: Apr 27, 2019 at 08:26 AM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -133,7 +133,28 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_04_19_123726_addmodeldetails', 3),
 (5, '2019_04_20_053938_modelsinfo', 4),
 (6, '2019_04_24_095953_create_gallery', 4),
-(7, '2019_04_26_103338_create_admin_table', 5);
+(7, '2019_04_26_103338_create_admin_table', 5),
+(8, '2019_04_27_080101_create_packages_table', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packages`
+--
+
+DROP TABLE IF EXISTS `packages`;
+CREATE TABLE IF NOT EXISTS `packages` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `onehour` int(11) NOT NULL DEFAULT '0',
+  `fourhour` int(11) NOT NULL DEFAULT '0',
+  `eighthour` int(11) NOT NULL DEFAULT '0',
+  `twentyfourhour` int(11) NOT NULL DEFAULT '0',
+  `weekend` int(11) NOT NULL DEFAULT '0',
+  `week` int(11) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
