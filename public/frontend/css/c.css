@@ -75,18 +75,20 @@ span.star-right {display: none;}
 .short-description p {
     margin-bottom: 15px;
 }
-.col-md-6.ma {
+.ma {
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.12);
     padding: 0;
     border-radius: 10px;
+    width: 100%;
+    margin: 0 8px;
 }
-.col-md-6.ma table{
+.ma table{
    border-radius: 5px;
 }
-.col-md-6.ma table, .col-md-6.ma tbody, .col-md-6.ma tr, .col-md-6.ma td {
+.ma table, .col-md-6.ma tbody, .col-md-6.ma tr, .col-md-6.ma td {
     border: 0 !important;
 }
-.col-md-6.ma table td {
+.ma table td {
     padding: 16px 35px 1px;
 }
 .short-description {
@@ -95,3 +97,4 @@ span.star-right {display: none;}
     border-radius: 5px;
     margin-bottom: 20px;
 }
+.col-md-6.k h5{margin:0 8px 15px;} 

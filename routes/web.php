@@ -41,6 +41,9 @@ Route::group(['prefix' => 'admin'], function(){
     Route::resource('homeinfo', 'Backend\HomeinfoController')->only([
         'edit', 'update'
     ]);
+    Route::resource('package', 'Backend\PackageController')->only([
+        'edit', 'update'
+    ]);
     Route::resource('/users', 'Backend\UserController')->only([
         'index', 'create', 'store', 'destroy'
     ]);

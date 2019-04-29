@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\User;
 use App\Gallery;
+use App\Package;
 use Auth;
 Use File;
 use Image;
@@ -30,8 +31,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        //return $user->featuredimage;
-        return view('frontend.user.show', compact('user'))->with('galleryitems', $user->gallery);
+        $packages = Package::all();
+        return view('frontend.user.show', compact('user'))->with('galleryitems', $user->gallery)->with('packages',$packages);
     }
     
     public function myaccount()

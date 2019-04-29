@@ -205,11 +205,11 @@
                                         
                                     </div>
                                     <div class="single-product-sec-head">
-                                            <h1>Model Assets</h1>
+                                            
                                         </div>
-                                    <div class="col-md-6 ma">
-
-                                        <table class="table table-bordered">
+                                    <div class="col-md-6 k">
+                                            <h5>Model Assets</h5>
+                                        <table class="table table-bordered ma">
                                             <tbody>
                                             <tr>
                                             <td><strong>Height</strong></td>
@@ -234,6 +234,39 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <div class="col-md-6 k">
+                                            <h5>Model Price</h5>
+                                            <table class="table table-bordered ma price">
+                                                <tbody>
+                                                @foreach($packages as $package)
+                                                <tr>
+                                                    <td><strong>1 hrs.</strong></td>
+                                                    <td>$ {{$package->onehour}} USD</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>4 hrs</strong></td>
+                                                    <td>$ {{$package->fourhour}} USD</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>8 hrs.</strong></td>
+                                                    <td>$ {{$package->eighthour}} USD</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>24 hrs.</strong></td>
+                                                    <td>$ {{$package->twentyfourhour}} USD</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Weekend</strong></td>
+                                                    <td>$ {{$package->weekend}} USD</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Week</strong></td>
+                                                    <td>$ {{$package->week}} USD</td>
+                                                </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
                                 </div>
                             </div>
                         </div>
