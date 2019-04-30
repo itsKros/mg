@@ -6,7 +6,31 @@
 
 @section('css')
 <style>
-.section {
+
+@font-face {
+  font-family: pignose-calendar-icon;
+  src: url({{asset('frontend/pignose/icon_navs.ttf')}});
+}
+@font-face {
+    font-family: 'Glyphicons Halflings';
+  src: url({{asset('frontend/datetimepicker/glyphicons-halflings-regular.ttf')}});
+}
+
+.datetimepicker thead tr:first-child th.next:after {
+    content: "\f054";
+    font-family: FontAwesome;
+}
+.datetimepicker thead tr:first-child th.prev:after {
+    content: "\f053";
+    font-family: FontAwesome;
+}
+.weekend .wrap-input {
+    width: 25%;
+    position: relative;
+}
+.weekend .wrap-input span{position: absolute;}
+
+        .section {
             padding-top: 90px;
         }
         /*banner*/
@@ -117,6 +141,34 @@
         }
         .kbtn {background: #272727;border: 0;padding: 15px 35px;}
         .kbtn:hover {background-color: #23aaab;}
+        
+        .wrap-input {
+            display: inline-block;
+            width: 49%;
+            margin-bottom: 3px;
+        }
+        .wrap-input.ad {
+            width: 98.8%;
+        }
+        .wrap-input.ad select {
+            border: 1px solid #d3d3d3;
+            padding: 15px 20px;
+            width: 100%;
+        }
+        
+
+        
+
+        .wrap-input span {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            font-size: 20px;
+            transform: translateY(-50%);
+        }
+        select.input {
+            padding: 14px 30px !important;
+        }
 
 </style>
 @endsection
@@ -274,166 +326,7 @@
                 </div>
             </div>
         </section>
-        <!-- quick view start -->
-        <div class="quick-view modal fade in" id="quick-view">
-            <div class="container">
-                <div class="row">
-                    <div id="view-gallery" class="owl-carousel product-slider owl-theme">
-                        <div class="col-xs-12">
-                            <div class="d-table">
-                                <div class="d-tablecell">
-                                    <div class="modal-dialog">
-                                        <div class="main-view modal-content">
-                                            <div class="modal-footer" data-dismiss="modal">
-                                                <span>x</span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-5">
-                                                    <div class="quick-image">
-                                                        <div class="single-quick-image tab-content text-center">
-                                                            <div class="tab-pane  fade in active" id="sin-pro-1">
-                                                                <img src="img/quick-view/10.jpg" alt="" />
-                                                            </div>
-                                                            <div class="tab-pane fade in" id="sin-pro-2">
-                                                                <img src="img/quick-view/10.jpg" alt="" />
-                                                            </div>
-                                                            <div class="tab-pane fade in" id="sin-pro-3">
-                                                                <img src="img/quick-view/10.jpg" alt="" />
-                                                            </div>
-                                                            <div class="tab-pane fade in" id="sin-pro-4">
-                                                                <img src="img/quick-view/10.jpg" alt="" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="quick-thumb">
-                                                            <div class="nav nav-tabs">
-                                                                <ul>
-                                                                    <li><a data-toggle="tab" href="#sin-pro-1"> <img
-                                                                                src="img/quick-view/10.jpg"
-                                                                                alt="quick view" /> </a></li>
-                                                                    <li><a data-toggle="tab" href="#sin-pro-2"> <img
-                                                                                src="img/quick-view/10.jpg"
-                                                                                alt="quick view" /> </a></li>
-                                                                    <li><a data-toggle="tab" href="#sin-pro-3"> <img
-                                                                                src="img/quick-view/10.jpg"
-                                                                                alt="quick view" /> </a></li>
-                                                                    <li><a data-toggle="tab" href="#sin-pro-4"> <img
-                                                                                src="img/quick-view/10.jpg"
-                                                                                alt="quick view" /> </a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-7">
-                                                    <div class="quick-right">
-                                                        <div class="quick-right-text">
-                                                            <h3><strong>product name title</strong></h3>
-                                                            <p>Lorem Ipsum is simply dummy text of the printing and
-                                                                typesetting industry. Lorem Ipsum has beenin the stand ard
-                                                                dummy text ever since the 1500s, when an unknown printer
-                                                                took a galley of type and scrames bled it make a type
-                                                                specimen book. It has survived not only five centuries, but
-                                                                also the leap into electronic type setting, remaining
-                                                                essentially unchanged It was popularised in the 1960s with
-                                                                the release of Letraset sheets containing Lorem Ipsum
-                                                                passages.</p>
-                                                            <div class="pro-img-tab-slider indicator-style2">
-                                                                <div class="item"><a href="#image-1" data-toggle="tab"><img
-                                                                            src="img/products/12.jpg" alt="" /></a></div>
-                                                                <div class="item"><a href="#image-2" data-toggle="tab"><img
-                                                                            src="img/products/13.jpg" alt="" /></a></div>
-                                                                <div class="item"><a href="#image-3" data-toggle="tab"><img
-                                                                            src="img/products/14.jpg" alt="" /></a></div>
-                                                                <div class="item"><a href="#image-4" data-toggle="tab"><img
-                                                                            src="img/products/15.jpg" alt="" /></a></div>
-                                                                <div class="item"><a href="#image-5" data-toggle="tab"><img
-                                                                            src="img/products/11.jpg" alt="" /></a></div>
-                                                                <div class="item"><a href="#image-6" data-toggle="tab"><img
-                                                                            src="img/products/10.jpg" alt="" /></a></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-product item end -->
-                        <div class="col-xs-12">
-                            <div class="d-table">
-                                <div class="d-tablecell">
-                                    <div class="modal-dialog">
-                                        <div class="main-view modal-content">
-                                            <div class="modal-footer" data-dismiss="modal">
-                                                <span>x</span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-5">
-                                                    <div class="quick-image">
-                                                        <div class="single-quick-image tab-content text-center">
-                                                            <div class="tab-pane  fade in active" id="sin-pro-5">
-                                                                <img src="img/quick-view/10.jpg" alt="" />
-                                                            </div>
-                                                            <div class="tab-pane fade in" id="sin-pro-6">
-                                                                <img src="img/quick-view/10.jpg" alt="" />
-                                                            </div>
-                                                            <div class="tab-pane fade in" id="sin-pro-7">
-                                                                <img src="img/quick-view/10.jpg" alt="" />
-                                                            </div>
-                                                            <div class="tab-pane fade in" id="sin-pro-8">
-                                                                <img src="img/quick-view/10.jpg" alt="" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="quick-thumb">
-                                                            <div class="nav nav-tabs">
-                                                                <ul>
-                                                                    <li><a data-toggle="tab" href="#sin-pro-5"> <img
-                                                                                src="img/quick-view/10.jpg"
-                                                                                alt="quick view" /> </a></li>
-                                                                    <li><a data-toggle="tab" href="#sin-pro-6"> <img
-                                                                                src="img/quick-view/10.jpg"
-                                                                                alt="quick view" /> </a></li>
-                                                                    <li><a data-toggle="tab" href="#sin-pro-7"> <img
-                                                                                src="img/quick-view/10.jpg"
-                                                                                alt="quick view" /> </a></li>
-                                                                    <li><a data-toggle="tab" href="#sin-pro-8"> <img
-                                                                                src="img/quick-view/10.jpg"
-                                                                                alt="quick view" /> </a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-7">
-                                                    <div class="quick-right">
-                                                        <div class="quick-right-text">
-                                                            <h3><strong>product name title</strong></h3>
-                                                            <p>Lorem Ipsum is simply dummy text of the printing and
-                                                                typesetting industry. Lorem Ipsum has beenin the stand ard
-                                                                dummy text ever since the 1500s, when an unknown printer
-                                                                took a galley of type and scrames bled it make a type
-                                                                specimen book. It has survived not only five centuries, but
-                                                                also the leap into electronic type setting, remaining
-                                                                essentially unchanged It was popularised in the 1960s with
-                                                                the release of Letraset sheets containing Lorem Ipsum
-                                                                passages.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-product item end -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- quick view end -->
+        
         <!-- request section start -->
         <section class="section">
             <div class="request-logo">
@@ -453,8 +346,9 @@
                                         consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi
                                         posuere nisl, in accumsan elit odio...</p>
                                 </div>
+                                
                                 <div class="col-md-6">
-                                    <div class="wrap-contact">
+                                    <div class="wrap-contact re">
                                         <form class="contact-form">
                                             <div class="wrap-input">
                                                 <input class="input" type="text" name="name" placeholder="Full Name *">
@@ -466,7 +360,40 @@
                                                 <input class="input" type="text" name="phone" placeholder="Phone">
                                             </div>
                                             <div class="wrap-input">
-                                                <textarea class="input" name="message" placeholder="Your message here..."></textarea>
+                                                <select class="email s-email s-wid input">
+                                                    @foreach($packages as $package)
+                                                    <option value="{{$package->onehour}}">One hour - $ {{$package->onehour}} USD</option>
+                                                    <option value="{{$package->fourhour}}">Four Hours - $ {{$package->fourhour}} USD</option>
+                                                    <option value="{{$package->eighthour}}">Eight Hours - $ {{$package->eighthour}} USD</option>
+                                                    <option value="{{$package->twentyfourhour}}">24 Hours - $ {{$package->twentyfourhour}} USD</option>
+                                                    <option value="{{$package->weekend}}">Weekend - $ {{$package->weekend}} USD</option>
+                                                    <option value="{{$package->week}}">Week - $ {{$package->week}} USD</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            @php
+                                                $time_arr = ['24:00'=>'12 AM', '01:00'=>'01 AM', '02:00'=>'02 AM', '03:00'=>'03 AM', '04:00'=>'04 AM', '05:00'=>'05 AM', '06:00'=>'06 AM', '07:00'=>'07 AM', '08:00'=>'08 AM', '09:00'=>'09 AM',
+                                                            '10:00'=>'10 AM', '11:00'=>'11 AM', '12:00'=>'12 PM', '13:00'=>'01 PM', '14:00'=>'02 PM', '15:00'=>'03 PM', '16:00'=>'04 PM', '17:00'=>'05 PM', '18:00'=>'06 PM', '19:00'=>'07 PM',
+                                                            '20:00'=>'08 PM', '21:00'=>'09 PM', '22:00'=>'10 PM', '23:00'=>'11 PM'];
+                                            @endphp
+                                           
+                                                <div class="wrap-input">
+                                                    <input id="date" name="date" type="text" placeholder="Select date" readonly required class="input date">
+                                                    <span><i class="fa fa-calendar"></i></span>
+                                                </div>
+                                                <div class="wrap-input">
+                                                    <select  name="time" readonly required class="input time">
+                                                        <option default selected>Choose time</option>
+                                                        @foreach($time_arr as $key=>$value)
+                                                            <option value="{{$key}}">{{$value}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <span><i class="fa fa-clock-o"></i></span>
+                                                </div>
+                                            
+                                            
+                                            <div class="wrap-input ad">
+                                                <textarea class="input" name="address" placeholder="Place to meet"></textarea>
                                             </div>
                                             <div class="container-contact-form-btn">
                                                 <button class="btn btn-primary kbtn">Submit</button>
@@ -481,4 +408,24 @@
             </div>
         </section>
         <!-- request section end -->
+@endsection
+
+@section('js')
+<script>
+    
+    var date = new Date();
+    date.setDate(date.getDate() + 90);
+    $("#date").datetimepicker({
+        format: 'mm/dd/yyyy',
+        minView:'month',
+        maxView: 'year',
+        autoclose: true,
+        startView:2,
+        todayHighlight:true,
+        startDate:new Date(),
+        endDate : date
+    })
+    
+
+</script>
 @endsection

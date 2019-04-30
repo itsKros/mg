@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 27, 2019 at 08:26 AM
+-- Generation Time: Apr 30, 2019 at 01:41 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -134,7 +134,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2019_04_20_053938_modelsinfo', 4),
 (6, '2019_04_24_095953_create_gallery', 4),
 (7, '2019_04_26_103338_create_admin_table', 5),
-(8, '2019_04_27_080101_create_packages_table', 6);
+(8, '2019_04_27_080101_create_packages_table', 6),
+(9, '2019_04_29_074109_create_packages_table', 7);
 
 -- --------------------------------------------------------
 
@@ -145,16 +146,23 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 DROP TABLE IF EXISTS `packages`;
 CREATE TABLE IF NOT EXISTS `packages` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `onehour` int(11) NOT NULL DEFAULT '0',
-  `fourhour` int(11) NOT NULL DEFAULT '0',
-  `eighthour` int(11) NOT NULL DEFAULT '0',
-  `twentyfourhour` int(11) NOT NULL DEFAULT '0',
-  `weekend` int(11) NOT NULL DEFAULT '0',
-  `week` int(11) NOT NULL DEFAULT '0',
+  `onehour` int(11) DEFAULT '0',
+  `fourhour` int(11) DEFAULT '0',
+  `eighthour` int(11) DEFAULT '0',
+  `twentyfourhour` int(11) DEFAULT '0',
+  `weekend` int(11) DEFAULT '0',
+  `week` int(11) DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `packages`
+--
+
+INSERT INTO `packages` (`id`, `onehour`, `fourhour`, `eighthour`, `twentyfourhour`, `weekend`, `week`, `created_at`, `updated_at`) VALUES
+(1, 40, 120, 240, 720, 1440, 3000, '2019-04-29 02:15:04', '2019-04-29 07:29:01');
 
 -- --------------------------------------------------------
 
@@ -207,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `modeldetail`, `height`, `weight`, `age`, `hair_color`, `eye_color`, `isAdmin`, `avatar`, `featuredimage`, `address`, `phone`) VALUES
 (1, 'Admin', 'ssquaresdev@gmail.com', NULL, '$2y$10$gwNPprACpksyiSnnUYBKleAt.urSvUSY/bAWhtJ8DY.ViBGlBLNIS', 'q9hpM3qKLLqJzN2i8J8nO3417YqjyLghX0h4atlt77W8cAuLcVfHvXlA8n83', '2019-04-09 06:20:45', '2019-04-25 10:03:21', '', '', '0.00', 0, '', '', 1, 'Admin_1556134249.png', 'default-featured.jpg', '', ''),
-(3, 'Kros', 'roshan@ssquares.co.in', NULL, '$2y$10$KlTcU7Ya3Z3xeL5zjVcQ5.2w/U4DfRyHdLdCpedxQFX5Tp4OQu1kK', 'Rxbim6ZNbTmAOk2v4wyatqE3OT1cxKVEc9XQfqXS7rnAW9oGg5nwR9Sao53t', '2019-04-23 23:38:14', '2019-04-25 00:50:44', '<p>Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ate.</p><p>Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante.</p><p>Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante.</p>', '6\'5', '170.00', 32, 'Blonde', 'Hazel', NULL, 'Kros_1556111661.jpg', 'Kros_1556111715_featured.jpg', '', ''),
+(3, 'Kros', 'roshan@ssquares.co.in', NULL, '$2y$10$KlTcU7Ya3Z3xeL5zjVcQ5.2w/U4DfRyHdLdCpedxQFX5Tp4OQu1kK', 'lzu4mQvvYzBUxZ0Qj399SFnedUbGiJaw6IaEF3kaCIREcDouebZxdKgweGhW', '2019-04-23 23:38:14', '2019-04-25 00:50:44', '<p>Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ate.</p><p>Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante.</p><p>Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante.</p>', '6\'5', '170.00', 32, 'Blonde', 'Hazel', NULL, 'Kros_1556111661.jpg', 'Kros_1556111715_featured.jpg', '', ''),
 (10, 'Alok', 'alok@ssquares.co.in', NULL, '$2y$10$i40PweF6rRSQxVcSuP2R9u4JqEr3r5DGvV5VnvW8jRzcQAg.Grsa.', 'k6NPUVr54HAj3lZEhHpMMOCVOhNUmzewX07sAe9ZLVbN8VsCNF9lJ1fVpROS', '2019-04-25 00:29:17', '2019-04-25 10:20:53', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet est placerat in egestas erat imperdiet sed. Id volutpat lacus laoreet non. Nibh tortor id aliquet lectus. Ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Fringilla phasellus faucibus scelerisque eleifend donec pretium.</p><p>Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Adipiscing tristique risus nec feugiat in fermentum. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Odio tempor orci dapibus ultrices in. Massa eget egestas purus viverra accumsan. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.</p>', '6\'5', '180.00', 37, 'Black', 'Black', NULL, 'Alok_1556134953.jpg', 'Alok_1556134980_featured.jpg', NULL, NULL);
 COMMIT;
 

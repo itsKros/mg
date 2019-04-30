@@ -45,8 +45,13 @@
 		<!-- responsive css -->
         <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
         <!-- modernizr css -->
-        <link rel="stylesheet" href="{{asset('frontend/css/c.css')}}">
         <script src="{{asset('frontend/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('frontend/pignose/pignose.calendar.min.css')}}">
+        
+        <link rel="stylesheet" href="{{asset('frontend/datetimepicker/bootstrap-datetimepicker.min.css')}}">
+        
+
+        <link rel="stylesheet" href="{{asset('frontend/css/c.css')}}">
         @yield('css')
     </head>
     <body>
@@ -86,6 +91,10 @@
         <!-- plugins js -->
         <script src="{{asset('frontend/js/bootstrap-filestyle.min.js')}}"></script>
         <!-- main js -->
+
+        <script src="{{asset('frontend/pignose/pignose.calendar.full.min.js')}}"></script>
+        <script src="{{asset('frontend/datetimepicker/bootstrap-datetimepicker.min.js')}}"></script>
+        
         <script src="{{asset('frontend/js/main.js')}}"></script>
 
         @yield('js')
