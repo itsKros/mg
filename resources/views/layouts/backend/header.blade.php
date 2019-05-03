@@ -76,6 +76,10 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="{{route('users.index')}}" aria-expanded="false"><i class="fas fa-user"></i><span class="hide-menu">Models</span></a>
                         </li>
+
+                        <li> <a class="waves-effect waves-dark" href="{{route('package.edit', ['package'=>1])}}" aria-expanded="false"><i class="far fa-list-alt"></i><span class="hide-menu">Packages</span></a>
+                        </li>
+                        
                         {{--<li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Icons</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>

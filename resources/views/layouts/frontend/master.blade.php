@@ -49,8 +49,10 @@
         <link rel="stylesheet" href="{{asset('frontend/pignose/pignose.calendar.min.css')}}">
         
         <link rel="stylesheet" href="{{asset('frontend/datetimepicker/bootstrap-datetimepicker.min.css')}}">
-        
 
+        <!--Datatable CSS-->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+        
         <link rel="stylesheet" href="{{asset('frontend/css/c.css')}}">
         @yield('css')
     </head>
@@ -95,6 +97,10 @@
         <script src="{{asset('frontend/pignose/pignose.calendar.full.min.js')}}"></script>
         <script src="{{asset('frontend/datetimepicker/bootstrap-datetimepicker.min.js')}}"></script>
         
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+        
+
         <script src="{{asset('frontend/js/main.js')}}"></script>
 
         @yield('js')

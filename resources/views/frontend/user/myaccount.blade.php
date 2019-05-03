@@ -30,46 +30,7 @@
 <div id="profile"class="container">
     <div class="row profile">
 		<div class="col-md-3">
-			<div class="profile-sidebar">
-				<!-- SIDEBAR USERPIC -->
-				<!-- SIDEBAR USERPIC -->
-				<div class="profile-userpic">
-					<img src="/public/uploads/avatars/{{$user->avatar}}" alt="{{$user->name}}" class="img-responsive" />
-				</div>
-				<!-- END SIDEBAR USERPIC -->
-				<!-- END SIDEBAR USERPIC -->
-				<!-- SIDEBAR USER TITLE -->
-				<div class="profile-usertitle">
-					<div class="profile-usertitle-name">
-						{{$user->name}}
-					</div>
-				</div>
-				<!-- END SIDEBAR USER TITLE -->
-				
-				<!-- SIDEBAR MENU -->
-				<div class="profile-usermenu">
-					<ul class="nav">
-						<li class="{{ $routename == 'my-account' ? 'active' : '' }}">
-							<a href="{{route('my-account')}}">
-							<i class="glyphicon glyphicon-pencil"></i>
-							Account Settings </a>
-						</li>
-
-						<li class="{{ $routename == 'my-profile' ? 'active' : '' }}">
-							<a href="{{route('my-profile')}}">
-							<i class="glyphicon glyphicon-user"></i>
-							Profile Detail</a>
-						</li>
-						<li class="{{ $routename == 'my-gallery' ? 'active' : '' }}">
-							<a href="{{route('my-gallery')}}">
-							<i class="glyphicon glyphicon-picture"></i>
-							Gallery</a>
-						</li>
-						
-					</ul>
-				</div>
-				<!-- END MENU -->
-			</div>
+				@include('frontend.user.profilenav')
 		</div>
 		<div class="col-md-9 profile-content">
 			@include('frontend.msgs.messages')

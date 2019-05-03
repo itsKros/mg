@@ -19,6 +19,10 @@ Route::get('/contact', 'Frontend\SiteController@contact')->name('contact');
 Route::get('/testmail', 'Frontend\SiteController@testmail');
 Route::get('/models', 'Frontend\UserController@index')->name('models');
 Route::get('/model/{model}', 'Frontend\UserController@show')->name('model.show');
+Route::resource('booking', 'Frontend\BookingController');
+Route::post('/booked', 'Frontend\SiteController@add_appoinment')->name('booking.submit');
+
+
 
 Auth::routes();
 Route::get('/my-account', 'Frontend\UserController@myaccount')->name('my-account');
@@ -29,8 +33,9 @@ Route::post('/my-profile', 'Frontend\UserController@profiledetailchange')->name(
 
 Route::get('/my-gallery/', 'Frontend\UserController@mygallery')->name('my-gallery');
 Route::post('/my-gallery', 'Frontend\UserController@galleryfeatured')->name('galleryfeatured');
-
+Route::get('/my-booking/', 'Frontend\UserController@mybooking')->name('my-booking');
 Route::resource('gallery', 'Frontend\GalleryController');
+
 
 //Admin Routes
 Route::group(['prefix' => 'admin'], function(){

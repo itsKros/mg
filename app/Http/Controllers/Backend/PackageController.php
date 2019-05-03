@@ -22,11 +22,11 @@ class PackageController extends Controller
        
         $this->validate($request, [
             'onehour'             => '',
-            'fourhour'             => '',
+            'fourhour'            => '',
             'eighthour'           => '',
-            'twentyfourhour'             => '',
-            'weekend'       => '',
-            'week'      => '',
+            'twentyfourhour'      => '',
+            'weekend'             => '',
+            'week'                => '',
         ]);
 
         $package->onehour = $request->onehour;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\User;
 use App\Gallery;
 use App\Package;
+use App\Booking;
 use Auth;
 Use File;
 use Image;
@@ -129,6 +130,12 @@ class UserController extends Controller
         }
         $user->save();
         return redirect('my-gallery')->with("success","Featured updated succesuflly!");
+    }
+
+    public function mybooking(){
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        return view('frontend.user.mybooking')->with('user', $user)->with('bookings', $user->bookings);
     }
 }
 

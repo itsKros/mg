@@ -41,4 +41,9 @@ class User extends Authenticatable
     public function gallery(){
         return $this->hasMany('App\Gallery');
     }
+
+    //Add One to many relationship 
+    public function bookings(){
+        return $this->hasMany('App\Booking');
+    }
 }

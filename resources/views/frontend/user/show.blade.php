@@ -33,18 +33,9 @@
         .section {
             padding-top: 90px;
         }
-        /*banner*/
-        .contact-img-area {
-            background-color: transparent;
-            background-image: url(img/bg-banner/bg-pagetitle.jpg);
-            background-position: center top;
-            background-repeat: no-repeat;
-            padding: 200px 0 100px;
-        }
-        .contact-img-area {
-            position: relative;
-        }
-        .contact-img-area::before {
+        
+        
+        /* .contact-img-area::before {
             background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
             content: "";
             height: 100%;
@@ -56,11 +47,12 @@
         .contact-img-area a {
             color: #dedede;
         }
-        , .contact-img-area p {
+         .contact-img-area p {
             color: #fff;
-        }
+        } */
+
         /*banner-title*/
-        h2.page-title {
+        /* h2.page-title {
             color: #fff;
             font-size: 40px;
             font-style: normal;
@@ -74,7 +66,7 @@
         .single-service > p {
             line-height: 23px;
             padding: 0 25px;
-        }
+        } */
         /*slider*/
         .pro-img-tab-slider .item a img {
             background: #f1f1f1 none repeat scroll 0 0;
@@ -194,6 +186,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                            @include('frontend.msgs.messages')
                         <div class="row">
                             <div class="col-md-6 col-sm-6 none-si-pro">
                                 <div class="pro-img-tab-content tab-content">
@@ -348,26 +341,29 @@
                                 </div>
                                 
                                 <div class="col-md-6">
+                                       
                                     <div class="wrap-contact re">
-                                        <form class="contact-form">
+                                        <form class="contact-form" action="{{route('booking.store')}}" method="POST">
+                                            @csrf
                                             <div class="wrap-input">
-                                                <input class="input" type="text" name="name" placeholder="Full Name *">
+                                                <input class="input" type="text" name="name" required placeholder="Full Name *" id="name"/>
                                             </div>
                                             <div class="wrap-input">
-                                                <input class="input" type="text" name="email" placeholder="Email *">
+                                                <input class="input" type="text" name="email" required placeholder="Email *" id="email"/>
                                             </div>
                                             <div class="wrap-input">
-                                                <input class="input" type="text" name="phone" placeholder="Phone">
+                                                <input class="input" type="text" name="phone" required placeholder="Phone" id="phone"/>
                                             </div>
                                             <div class="wrap-input">
-                                                <select class="email s-email s-wid input">
+                                                <select class="email s-email s-wid input" required aria-required="true"  name="package" id="package">
+                                                    <option value="">Select Package</option>
                                                     @foreach($packages as $package)
-                                                    <option value="{{$package->onehour}}">One hour - $ {{$package->onehour}} USD</option>
-                                                    <option value="{{$package->fourhour}}">Four Hours - $ {{$package->fourhour}} USD</option>
-                                                    <option value="{{$package->eighthour}}">Eight Hours - $ {{$package->eighthour}} USD</option>
-                                                    <option value="{{$package->twentyfourhour}}">24 Hours - $ {{$package->twentyfourhour}} USD</option>
-                                                    <option value="{{$package->weekend}}">Weekend - $ {{$package->weekend}} USD</option>
-                                                    <option value="{{$package->week}}">Week - $ {{$package->week}} USD</option>
+                                                    <option value="One Hour">One hour - $ {{$package->onehour}} USD</option>
+                                                    <option value="Four Hours">Four Hours - $ {{$package->fourhour}} USD</option>
+                                                    <option value="Eight Hours">Eight Hours - $ {{$package->eighthour}} USD</option>
+                                                    <option value="Twentyfour Hours">24 Hours - $ {{$package->twentyfourhour}} USD</option>
+                                                    <option value="Weekend">Weekend - $ {{$package->weekend}} USD</option>
+                                                    <option value="Week">Week - $ {{$package->week}} USD</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -378,12 +374,13 @@
                                             @endphp
                                            
                                                 <div class="wrap-input">
-                                                    <input id="date" name="date" type="text" placeholder="Select date" readonly required class="input date">
+                                                    <input id="date" name="date" type="text" placeholder="Select date" required class="input date" />
                                                     <span><i class="fa fa-calendar"></i></span>
                                                 </div>
                                                 <div class="wrap-input">
-                                                    <select  name="time" readonly required class="input time">
-                                                        <option default selected>Choose time</option>
+                                                    <select  name="time" required aria-required="true" class="input time" id="time" >
+                                                        <option value="">Choose time</option>
+                                                        
                                                         @foreach($time_arr as $key=>$value)
                                                             <option value="{{$key}}">{{$value}}</option>
                                                         @endforeach
@@ -393,10 +390,12 @@
                                             
                                             
                                             <div class="wrap-input ad">
-                                                <textarea class="input" name="address" placeholder="Place to meet"></textarea>
+                                                <textarea class="input" name="address" id="address" required placeholder="Place to meet"></textarea>
                                             </div>
+                                            <input type="hidden" value="{{$user->id}}"  name="modelid">
+                                            <input type="hidden" value="{{$user->name}}" name="modelname"> 
                                             <div class="container-contact-form-btn">
-                                                <button class="btn btn-primary kbtn">Submit</button>
+                                                <input type="submit" class="btn btn-primary kbtn" value="Submit" />
                                             </div>
                                         </form>
                                     </div>
