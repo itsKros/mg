@@ -45,7 +45,7 @@
 							    <div class="mainmenu clearfix hidden-sm hidden-xs">
                                     <nav>
                                         <ul>
-                                            <li><a href="/">Home</a></li>
+                                            <li><a href="{{ env('ASSET_URL') }}">Home</a></li>
                                             <li><a href="{{ route('about') }}">About Us</a></li>
                                             <li><a href="{{ route('services') }}">Services</a></li>
                                             <li><a href="{{ route('models') }}">Montreal Gentlemen</a></li>
@@ -59,10 +59,11 @@
                                     <div class="mobile-menu">
                                         <nav id="dropdown">
                                             <ul>
-                                                <li><a href="/">Home</a></li>
-                                                <li><a href="#">About</a></li>
-                                                <li><a href="#">Services</a></li>
-                                                <li><a href="#">Contact Us</a></li>
+                                                    <li><a href="{{ env('ASSET_URL') }}">Home</a></li>
+                                                    <li><a href="{{ route('about') }}">About Us</a></li>
+                                                    <li><a href="{{ route('services') }}">Services</a></li>
+                                                    <li><a href="{{ route('models') }}">Montreal Gentlemen</a></li>
+                                                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                             </ul>
                                         </nav>
                                     </div>

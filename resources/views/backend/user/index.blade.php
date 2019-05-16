@@ -49,7 +49,7 @@
                                             
                                             
                                             <td class="action">
-                                                {{-- <a href="" class="btn btn-primary btn-sm">View</a> --}}
+                                                <a href="/public/admin/users/{{$user->id}}" class="btn btn-primary btn-sm">View</a>
                                                 <form action="{{route('users.destroy', ['id'=>$user->id])}}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}

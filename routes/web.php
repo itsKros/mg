@@ -50,9 +50,10 @@ Route::group(['prefix' => 'admin'], function(){
         'edit', 'update'
     ]);
     Route::resource('/users', 'Backend\UserController')->only([
-        'index', 'create', 'store', 'destroy'
+        'index', 'create', 'store', 'destroy','show'
     ]);
-
+    Route::post('/approve/{id}', 'Backend\UserController@status_approve')->name('user.status_approve');
+    Route::post('/disapprove/{id}', 'Backend\UserController@status_disapprove')->name('user.status_disapprove');
     
 
 });

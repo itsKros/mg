@@ -25,7 +25,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all()->where('isAdmin','=', null);
+        $users = User::all()->where('status','=', 1);
         return view('frontend.user.index',compact('users'));
         
     }

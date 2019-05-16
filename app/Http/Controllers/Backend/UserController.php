@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\User;
+use App\Gallery;
+use App\Package;
+use App\Booking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +21,8 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all()->where('isAdmin','=', null);
+        $users = User::all();
+        //$users = User::all()->where('isAdmin','=', null);
         return view('backend.user.index',compact('users'));
         
     }
@@ -51,13 +55,21 @@ class UserController extends Controller
     
             $message->to($request->input('modelemail'))
             ->subject('Welcome '.$request->input('modelname'))
-            ->setBody('<h3 style="font-weight:normal;">Hi, here is your password:  <strong>'.$request->input('modelpassword').'</strong></h3><p><em>Please change your password after first login.</em></p>','text/html');
+            ->setBody('<h3 style="font-weight:normal;">Hi, here is your password:  <strong>'.$request->input('modelpassword').'</strong></h3>
+            <p><em>Please change your password after first login.</em></p><p><a href="http://montreal.ssquares.co.in/public/login">http://montreal.ssquares.co.in/public/login</a></p>','text/html');
     
         });
 
 
         return redirect('/admin/users')->with('success', 'User added successfully');
     }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('backend.user.show', compact('user'))->with('galleryitems', $user->gallery);
+    }
+
     public function destroy($id)
     {
         $user = User::find($id);
@@ -65,6 +77,23 @@ class UserController extends Controller
 
         return redirect('/admin/users')->with('success', 'User deleted successfully');
         
+    }
+    
+    public function status_approve($id){
+        
+        $user = User::find($id);
+        $user->status = 1;
+        $user->update();
+
+        return redirect()->back()->with('success', 'This model is approved!');
+    }
+    public function status_disapprove($id){
+        
+        $user = User::find($id);
+        $user->status = 0;
+        $user->update();
+
+        return redirect()->back()->with('success', 'This model is disapproved!');
     }
     
    

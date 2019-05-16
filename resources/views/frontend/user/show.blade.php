@@ -253,7 +253,7 @@
                                             
                                         </div>
                                     <div class="col-md-6 k">
-                                            <h5>Model Assets</h5>
+                                        <h5>Model Assets</h5>
                                         <table class="table table-bordered ma">
                                             <tbody>
                                             <tr>
