@@ -62,7 +62,7 @@
 					</div>
 					<div class="form-group">
 						<label for="eyecolor" class="control-label">Eyes Color</label>
-						<input type="text" class="form-control" id="eyecolor" name="eyecolor" placeholder="Enter Hair Color" value="{{$user->eye_color}}">
+						<input type="text" class="form-control" id="eyecolor" name="eyecolor" placeholder="Enter Eye Color" value="{{$user->eye_color}}">
 					</div>
 				</div>
 				<div class="col-md-12">

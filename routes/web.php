@@ -54,7 +54,7 @@ Route::group(['prefix' => 'admin'], function(){
     ]);
     Route::post('/approve/{id}', 'Backend\UserController@status_approve')->name('user.status_approve');
     Route::post('/disapprove/{id}', 'Backend\UserController@status_disapprove')->name('user.status_disapprove');
-    
+    Route::post('/userprofiledetailchange/{id}', 'Backend\UserController@userprofiledetailchange')->name('userprofiledetailchange');
 
 });
 

@@ -6,6 +6,8 @@ use App\User;
 use App\Gallery;
 use App\Package;
 use App\Booking;
+Use File;
+use Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +24,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        //$users = User::all()->where('isAdmin','=', null);
         return view('backend.user.index',compact('users'));
         
     }
@@ -95,6 +96,62 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'This model is disapproved!');
     }
+
+    /**
+     * USER DETAIL EDIT
+     */
     
+    public function  userprofiledetailchange($id, Request $request){
+        
+        
+       
+        $this->validate($request, [
+            'height' => '',
+            'weight' => '',
+            'age' => '',
+            'hair_color' => '',
+            'eye_color' => '',
+            'modeldetail' => ''
+        ]);
+
+        $user = User::findOrFail($id);
+        if($request->hasFile('featuredimage')){
+            File::delete(public_path() . '/uploads/featuredimages/'. $user->featuredimage);
+            $featuredimage= $request->file('featuredimage');
+            $filename = $user->name.'_'.time().'_featured.'.$featuredimage->getClientOriginalExtension();
+            Image::make($featuredimage)->crop(480,600)->save(public_path('/uploads/featuredimages/'.$filename));
+            $user->featuredimage = $filename;
+        }
+        $user->height = $request->get('height');
+        $user->weight = $request->get('weight');
+        $user->age = $request->get('age');
+        $user->hair_color = $request->get('haircolor');
+        $user->eye_color = $request->get('eyecolor');
+        $user->modeldetail = $request->get('modeldetail');
+        $user->update();
+        return redirect()->back()->with("success","Profile details changed successfully !");
+
+        
+    }
+
+    public function usergallery() {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        return view('frontend.user.mygallery')->with('user', $user)->with('galleryitems', $user->gallery);
+    }
+
+    public function usergalleryfeatured(Request $request){
+        
+        $user = User::find($id);
+        if($request->hasFile('featuredimage')){
+            File::delete(public_path() . '/uploads/featuredimages/'. $user->featuredimage);
+            $featuredimage= $request->file('featuredimage');
+            $filename = $user->name.'_'.time().'_featured.'.$featuredimage->getClientOriginalExtension();
+            Image::make($featuredimage)->crop(480,600)->save(public_path('/uploads/featuredimages/'.$filename));
+            $user->featuredimage = $filename;
+        }
+        $user->save();
+        return redirect()->back()->with("success","Featured updated succesuflly!");
+    }
    
 }

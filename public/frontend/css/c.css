@@ -60,18 +60,9 @@ span.star-right {display: none;}
 #profile .profile-content .form-horizontal .form-group{margin: 0;margin-bottom: 20px;}
 #profile .profile-content .form-horizontal .control-label { font-size: 15px; margin-bottom: 5px;}
 #profile .profile-content .form-horizontal .userfeatured{width: 20%;border: 2px solid #ffffff;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);}
-.gall-thumb {
-    position: relative;
-    margin: 0 7px 10px;
-    padding: 0;
-    width: 28%;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
-}
-.gall-thumb button {
-    position: absolute;
-    left: 7px;
-    top: 5px;
-}
+
+.gall-thumb {position: relative;margin: 0 7px 10px;padding: 0;width: 28%;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);}
+.gall-thumb button {position: absolute;left: 7px;top: 5px;}
 .short-description p {
     margin-bottom: 15px;
 }
