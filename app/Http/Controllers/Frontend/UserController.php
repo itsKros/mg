@@ -23,19 +23,37 @@ class UserController extends Controller
         $this->middleware('auth')->except('index','show');
     }
 
+    /**
+     * ALL APPROVED MODELS
+     */
     public function index()
     {
         $users = User::all()->where('status','=', 1);
         return view('frontend.user.index',compact('users'));
-        
     }
+
+    /**
+     * APPROVED MODELS SINGLE PAGE 
+     */
     public function show($id)
     {
         $user = User::find($id);
         $packages = Package::all();
-        return view('frontend.user.show', compact('user'))->with('galleryitems', $user->gallery)->with('packages',$packages);
+        
+        if($user->status == 1){
+            return view('frontend.user.show', compact('user'))
+            ->with('galleryitems', $user->gallery)
+            ->with('packages',$packages)
+            ->with('bookings',$user->bookings);
+        }
+        else {
+            return "<h1>Model Not Available</h1>";
+        }
     }
     
+    /**
+     * MODELS MY ACCOUNT SHOW
+     */
     public function myaccount()
     {
         $user_id = auth()->user()->id;
@@ -44,8 +62,11 @@ class UserController extends Controller
     }
 
         
-    
-    public function accountdetailchange(Request $request){
+    /**
+     * MODELS MY ACCOUNT DETAILS EDIT (name, email, profile picture, password )
+     */
+    public function accountdetailchange(Request $request)
+    {
         $user = Auth::user();
 
         if($request->get('currentpassword') && $request->get('newpassword') && $request->get('confirmnewpassword')){
@@ -82,15 +103,23 @@ class UserController extends Controller
         
     }
 
-    public function myprofile() {
+
+    /**
+     * MODELS PROFILE DETAILS SHOW
+     */
+    public function myprofile() 
+    {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         return view('frontend.user.myprofile')->with('user', $user);
     }
 
-    public function profiledetailchange(Request $request){
-        
-        
+
+    /**
+     * MODELS PROFILE DETAILS EDIT (height, weight, age, description etc.)
+     */
+    public function profiledetailchange(Request $request)
+    {
         $this->validate($request, [
             'height' => '',
             'weight' => '',
@@ -112,12 +141,19 @@ class UserController extends Controller
         
     }
 
+    /**
+     * MODELS GALLERY SHOW
+     */
     public function mygallery() {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         return view('frontend.user.mygallery')->with('user', $user)->with('galleryitems', $user->gallery);
     }
 
+
+    /**
+     * MODELS FEATURED IMAGE
+     */
     public function galleryfeatured(Request $request){
         
         $user = Auth::user();
@@ -132,6 +168,9 @@ class UserController extends Controller
         return redirect('my-gallery')->with("success","Featured updated succesuflly!");
     }
 
+    /**
+     * MODELS ALL BOOKINGS
+     */
     public function mybooking(){
         $user_id = auth()->user()->id;
         $user = User::find($user_id);

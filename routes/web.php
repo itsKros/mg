@@ -20,7 +20,7 @@ Route::get('/testmail', 'Frontend\SiteController@testmail');
 Route::get('/models', 'Frontend\UserController@index')->name('models');
 Route::get('/model/{model}', 'Frontend\UserController@show')->name('model.show');
 Route::resource('booking', 'Frontend\BookingController');
-Route::post('/booked', 'Frontend\SiteController@add_appoinment')->name('booking.submit');
+//Route::post('/booked', 'Frontend\SiteController@add_appoinment')->name('booking.submit');
 
 
 
@@ -55,6 +55,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::post('/approve/{id}', 'Backend\UserController@status_approve')->name('user.status_approve');
     Route::post('/disapprove/{id}', 'Backend\UserController@status_disapprove')->name('user.status_disapprove');
     Route::post('/userprofiledetailchange/{id}', 'Backend\UserController@userprofiledetailchange')->name('userprofiledetailchange');
+    Route::delete('/gallerydestroy/{gallery}', 'Backend\UserController@gallerydestroy')->name('gallerydestroy');
 
 });
 

@@ -23,9 +23,13 @@
     <!-- You can change the theme colors from here -->
     <link href="{{asset('backend/css/colors/blue.css')}}" id="theme" rel="stylesheet">
     
+     <!--Datatable CSS-->
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
     <!-- CMS CSS -->
     <link href="{{asset('backend/css/cms-style.css')}}" rel="stylesheet">
     <script src="{{asset('/js/app.js')}}"></script>
+    @yield('css')
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -66,6 +70,9 @@
     <!--c3 JavaScript -->
     <script src="{{asset('backend/plugins/d3/d3.min.js')}}"></script>
     <script src="{{asset('backend/plugins/c3-master/c3.min.js')}}"></script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
     <!-- Chart JS -->
     <script src="{{asset('backend/js/dashboard1.js')}}"></script>
     <!-- ============================================================== -->

@@ -1,4 +1,20 @@
 @extends('layouts.backend.master')
+@section('css')
+<style>
+    div#bookingAll_paginate .pagination > li {display:flex;justify-content: center;align-items: center;}
+    div#bookingAll_paginate .pagination > .active {    background: #1e88e5;}
+    div#bookingAll_paginate .pagination > .active > a{    color: #fff; }
+    .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+    cursor: default;
+    padding: 5px 15px;
+    color: #67757c;
+    border: 1px solid #ddd;
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+</style>
+@endsection
 @section('content')
 <div class="page-wrapper" style="min-height: 294px;">
             <!-- ============================================================== -->
@@ -22,168 +38,68 @@
                 
                 <div class="row price">
                     <div class="col-12">
-                        <h3 class="m-b-0">Packages </h3>
+                        <h3 class="m-b-0">All Bookings </h3>
                         <p class="text-muted m-t-0 font-12">
-                            Edit mod
+                            List of bookings
                         </p>
                     </div>
-                    <!--One Hour Start-->
-                    <div class="col-md-4 package">
-                        <div class="card card-outline-inverse">
-                            <div class="card-header">
-                                <h4 class="m-b-0 text-white">One Hour Rate</h4></div>
-                            <div class="card-body">
-                                <form action="{{route('homeinfo.update', ['homeinfo' => 1])}}" method="POST" class="form-horizontal form-material row">
-                                    {{csrf_field()}}
-                                    {{ method_field('PUT')}}
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <label for="onehour">Add Price</label>
-                                            <input type="text" id="onehour" name="onehour" value="" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-inverse">Update</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!--One Hour Ends-->
-
-
-                    <!--For Hour Start-->
-                    <div class="col-md-4 package">
-                        <div class="card card-outline-inverse">
-                            <div class="card-header">
-                                <h4 class="m-b-0 text-white">Four Hours Rate</h4></div>
-                            <div class="card-body">
-                                <form action="{{route('homeinfo.update', ['homeinfo' => 1])}}" method="POST" class="form-horizontal form-material row">
-                                    {{csrf_field()}}
-                                    {{ method_field('PUT')}}
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <label for="fourhour">Add Price</label>
-                                            <input type="text" id="fourhour" name="fourhour" value="" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-inverse">Update</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Four Hour Ends-->
-
-                    <!--For Eight Start-->
-                    <div class="col-md-4 package">
-                        <div class="card card-outline-inverse">
-                            <div class="card-header">
-                                <h4 class="m-b-0 text-white">Eight Hours Rate</h4></div>
-                            <div class="card-body">
-                                <form action="{{route('homeinfo.update', ['homeinfo' => 1])}}" method="POST" class="form-horizontal form-material row">
-                                    {{csrf_field()}}
-                                    {{ method_field('PUT')}}
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <label for="fourhour">Add Price</label>
-                                            <input type="text" id="eighthour" name="eighthour" value="" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-inverse">Update</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Four Eight Ends-->
-
-                    <!--For twentyfour Start-->
-                    <div class="col-md-4 package">
-                        <div class="card card-outline-inverse">
-                            <div class="card-header">
-                                <h4 class="m-b-0 text-white">24 Hours Rate</h4></div>
-                            <div class="card-body">
-                                <form action="{{route('homeinfo.update', ['homeinfo' => 1])}}" method="POST" class="form-horizontal form-material row">
-                                    {{csrf_field()}}
-                                    {{ method_field('PUT')}}
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <label for="twentyfourhour">Add Price</label>
-                                            <input type="text" id="twentyfourhour" name="twentyfourhour" value="" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-inverse">Update</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Four Eight Ends-->
-
-                    <!--For Weekend Start-->
-                    <div class="col-md-4 package">
-                        <div class="card card-outline-inverse">
-                            <div class="card-header">
-                                <h4 class="m-b-0 text-white">Weekend Rate</h4></div>
-                            <div class="card-body">
-                                <form action="{{route('homeinfo.update', ['homeinfo' => 1])}}" method="POST" class="form-horizontal form-material row">
-                                    {{csrf_field()}}
-                                    {{ method_field('PUT')}}
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <label for="weekend">Add Price</label>
-                                            <input type="text" id="weekend" name="weekend" value="" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-inverse">Update</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Four Weekend Ends-->
-
-                    <!--For Week Start-->
-                    <div class="col-md-4 package">
-                        <div class="card card-outline-inverse">
-                            <div class="card-header">
-                                <h4 class="m-b-0 text-white">Week Rate</h4></div>
-                            <div class="card-body">
-                                <form action="{{route('homeinfo.update', ['homeinfo' => 1])}}" method="POST" class="form-horizontal form-material row">
-                                    {{csrf_field()}}
-                                    {{ method_field('PUT')}}
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <label for="week">Add Price</label>
-                                            <input type="text" id="week" name="week" value="" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-inverse">Update</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Four Week Ends-->
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <table id="bookingAll" class="table table-bordered table-striped dataTable no-footer" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Model Name</th>
+                                            <th>Client Name</th>
+                                            <th>Client Email</th>
+                                            <th>Client Phone</th>
+                                            <th>Package</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Address</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if(count($bookings))
+                                            @foreach($bookings as $booking)
+                                                <tr>
+                                                    <td>{{$booking->model_name}}</td>
+                                                    <td>{{$booking->client_name}}</td>
+                                                    <td>{{$booking->client_email}}</td>
+                                                    <td>{{$booking->client_phone}}</td>
+                                                    <td>{{$booking->package}}</td>
+                                                    <td>
+                                                        @php 
+                                                            $input = $booking->date; 
+                                                            $date = strtotime($input); 
+                                                            echo date('d M Y', $date); 
+                                                        @endphp
+                                                    </td>
+                                                    <td>
+                                                        @php 
+                                                            $input = $booking->time; 
+                                                            $time = strtotime($input); 
+                                                            echo date('h:00 A', $time); 
+                                                        
+                                                        @endphp
+                                                    </td>
+                                                    <td>{{$booking->address}}</td>
+                                                </tr>
+                                            @endforeach
+                                            @else
+                                            <tr><td>No Bookings</td></tr>
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -193,4 +109,11 @@
             <!-- ============================================================== -->
             <!-- ============================================================== -->
            
+@endsection
+@section('js')
+<script>
+    $(document).ready(function() {
+        $('#bookingAll').DataTable();
+    } );
+</script>
 @endsection

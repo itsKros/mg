@@ -312,6 +312,13 @@
                                                 </tbody>
                                             </table>
                                         </div>
+
+
+                                    {{-- <div class="col-md-6">
+                                        @foreach ($bookings as $booking)
+                                        {{$booking->date}}&nbsp;{{$booking->package}}<br>
+                                        @endforeach
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -328,7 +335,7 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="col-md-6">
-                                    <h2>Request An Encounter</h2>
+                                <h2>Request An Encounter for {{$user->name}}</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est
                                         tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis
                                         justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id
@@ -407,10 +414,14 @@
             </div>
         </section>
         <!-- request section end -->
+
 @endsection
 
 @section('js')
 <script>
+
+
+
     
     var date = new Date();
     date.setDate(date.getDate() + 90);
@@ -421,6 +432,45 @@
         autoclose: true,
         startView:2,
         todayHighlight:true,
+        datesDisabled: [
+            @foreach ($bookings as $booking)
+                
+                
+                "{{$booking->date}}",
+
+                @if($booking->package == "Weekend")
+                    @php
+                        $star_date = strtotime($booking->date);
+                        $end_date = strtotime($booking->date. ' +1 day');  
+                        $sd = date('m/d/Y', $star_date); 
+                        $ed = date('m/d/Y', $end_date); 
+                        echo 
+                        "\"$sd\",
+                        \"$ed\",";
+                    @endphp
+                @endif
+
+                @if($booking->package == "Week")
+                    @php
+                        $first_day      = date('m/d/Y', strtotime($booking->date));
+                        $second_day     = date('m/d/Y', strtotime($booking->date. ' +1 day'));
+                        $third_day      = date('m/d/Y', strtotime($booking->date. ' +2 day')); 
+                        $fourth_day     = date('m/d/Y', strtotime($booking->date. ' +3 day')); 
+                        $fifth_day      = date('m/d/Y', strtotime($booking->date. ' +4 day')); 
+                        $sixth_day      = date('m/d/Y', strtotime($booking->date. ' +5 day')); 
+                        $seventh_day    = date('m/d/Y', strtotime($booking->date. ' +6 day'));   
+                        echo 
+                        "\"$first_day\",
+                        \"$second_day\",
+                        \"$third_day\",
+                        \"$fourth_day\",
+                        \"$fifth_day\",
+                        \"$sixth_day\",
+                        \"$seventh_day\",";
+                    @endphp
+                @endif
+            @endforeach
+        ],
         startDate:new Date(),
         endDate : date
     })

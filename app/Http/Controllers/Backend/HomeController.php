@@ -1,8 +1,11 @@
 <?php
 
-use App\User;
+
+
 namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
+use App\User;
+use App\Booking;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,10 +27,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend.home');
+        $bookings = Booking::all();
+        return view('backend.home', compact('bookings'));
     }
     public function homeinfo()
     {
         return view('backend.homeinfo');
     }
+
+    
 }

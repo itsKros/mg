@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-4">
+            <div class="col-md-4 col-sm-4 col-xs-4" style="display:none;">
                 <div class="page-title">
                     
                     <h3>Our Location</h3>
@@ -57,9 +57,10 @@
                 </div>
                 
             </div>
-            <div class="col-md-8 col-sm-8 col-xs-8">
+
+            <!---->
+            <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="page-title">
-                    
                     <h3>Get in touch with us</h3>
                 </div>
                 <div class="panel panel-default">

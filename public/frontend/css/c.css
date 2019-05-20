@@ -89,3 +89,10 @@ span.star-right {display: none;}
     margin-bottom: 20px;
 }
 .col-md-6.k h5{margin:0 8px 15px;} 
+
+
+.pagination>li:first-child>a, .pagination>li:first-child>span {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    padding: 10px 15px;
+}
